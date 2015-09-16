@@ -8,15 +8,17 @@
 class spnTransition {
 private:
 	uint32_t rate; /*Fire rate*/
-	std::vector<spnPlace> inp; /*Input places*/
-	std::vector<spnPlace> outp; /*Output places*/
+	std::vector<spnPlace*> inp; /*Input places*/
+	std::vector<spnPlace*> outp; /*Output places*/
 	spnTransition& operator=(spnTransition const& spnTran);
+	std::string name;
+	uint32_t fires;
 public:
 	/**
 	 * @brief Ctor
 	 * @return none
 	 */
-	spnTransition();
+	spnTransition(std::string const& name);
 	/**
 	 * @brief Dtor
 	 * @return none
@@ -26,7 +28,7 @@ public:
 	 * @brief Get fire rate
 	 * @return fire rate
 	 */
-	uint32_t getFireRate();
+	uint32_t getFireRate() const;
 	/**
 	 * @brief Set fire rate
 	 * @param[in] rate Fire rate
@@ -39,18 +41,23 @@ public:
 	 * @param[in] p Place
 	 * @return none
 	 */
-	void addInputPlace(spnPlace const &p);
+	void addInputPlace(spnPlace* p);
 	/**
 	 * @brief Add output place
 	 * @param[in] p Place
 	 * @return none
 	 */
-	void addOutputPlace(spnPlace const &p);
+	void addOutputPlace(spnPlace* p);
 	/**
 	 * @brief Fire transition
 	 * @return none
 	 */
 	void fire();
+	/**
+	 * @brief Get number of fires
+	 * @return number of fires
+	 */
+	uint32_t getFires() const;
 };
 
 #endif

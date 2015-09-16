@@ -9,7 +9,6 @@ spnPlace::spnPlace(uint32_t tokens) {
 }
 
 spnPlace::~spnPlace() {
-	tokens = 0;
 }
 
 void spnPlace::incrementTokens() {

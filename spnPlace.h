@@ -3,6 +3,7 @@
 
 #include<vector>
 #include <stdint.h>
+#include <iostream>
 
 class spnPlace {
 private:
