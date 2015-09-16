@@ -9,12 +9,13 @@ void spnSimulator::runTransition(spnTransition* trans, int id) {
 		trans->fire();
 		mtx.unlock();
 		std::this_thread::sleep_for(
-				std::chrono::microseconds((1000000 / trans->getFireRate())));
+				std::chrono::microseconds((simPeriod / trans->getFireRate())));
 	}
 }
 
-void spnSimulator::startSimulation() {
+void spnSimulator::startSimulation(uint32_t simPeriod) {
 	SPN_LOG("Start simulation");
+	this->simPeriod = simPeriod;
 	int i = 0;
 	for (auto it = trans.begin(); it != trans.end(); it++, i++) {
 		isRunning[i] = true;

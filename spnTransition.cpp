@@ -31,19 +31,20 @@ void spnTransition::fire() {
 	if (!inp.empty()) {
 		for (auto it = inp.begin(); it != inp.end(); it++) {
 			/*Transition is disabled*/
-			if (!(*it)->getTokens())
+			if (!(*it)->getTokens()) {
 				return;
+			}
 		}
 		/*Decrement input tokens*/
 		for (auto it = inp.begin(); it != inp.end(); it++) {
 			(*it)->decrementTokens();
 		}
 	}
-	fires++;
 	/*Increment output tokens*/
 	for (auto it = outp.begin(); it != outp.end(); it++) {
 		(*it)->incrementTokens();
 	}
+	fires++;
 }
 
 uint32_t spnTransition::getFires() const {

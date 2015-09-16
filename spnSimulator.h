@@ -15,6 +15,7 @@ private:
 	std::thread t[SPN_THREAD_NUM]; /*Transition threads*/
 	std::mutex mtx; /*Transition fire mutex*/
 	bool isRunning[SPN_THREAD_NUM]; /*Specify if the thread should be running*/
+	uint32_t simPeriod;
 	/**
 	 * @brief Run transition
 	 * @param[in] trans Transition
@@ -27,7 +28,7 @@ public:
 	 * @brief Start simulation
 	 * @return none
 	 */
-	void startSimulation();
+	void startSimulation(uint32_t simPeriod);
 	/**
 	 * @brief Stop simulation
 	 * @return none
